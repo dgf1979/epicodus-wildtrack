@@ -13,13 +13,23 @@ class SightingsController < ApplicationController
       redirect_to species_path(@sighting.species)
     else
       render :new
+    end
   end
-end
 
   def edit
     @sighting = Sighting.find(params[:id])
     @species = Species.find(params[:species_id])
     render :edit
+  end
+
+  def update
+    @sighting = Sighting.find(params[:id])
+    @species = Species.find(params[:species_id])
+    if @sighting.update(sighting_params)
+      redirect_to species_path(@species)
+    else
+      render edit
+    end
   end
 
   def destroy
