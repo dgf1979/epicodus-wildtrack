@@ -22,6 +22,7 @@ class SpeciesController < ApplicationController
   def update
     @species = Species.find(params[:id])
     if @species.update(species_params)
+      flash[:notice] = "Species Updated"
       redirect_to species_index_path
     else
       render :edit
@@ -31,6 +32,7 @@ class SpeciesController < ApplicationController
   def create
     @species = Species.new(species_params)
     if @species.save
+      flash[:notice] = "Species Added"
       redirect_to species_index_path
     else
       render :new

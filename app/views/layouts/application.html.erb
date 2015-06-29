@@ -1,14 +1,18 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <title>Wildtrack</title>
-  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
-  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
-  <%= csrf_meta_tags %>
-</head>
-<body>
-
-<%= yield %>
-
-</body>
+  <head>
+    <title>Wildtrack</title>
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+    <%= csrf_meta_tags %>
+  </head>
+  <body>
+    <h1>Wild Track</h1>
+    <h4><%= yield(:subtitle) %></h4>
+    <p>
+      <span style="color: red;"><%= flash[:alert] %></span>
+      <span style="color: blue;"><%= flash[:notice] %></span>  
+    </p>
+    <%= yield %>
+  </body>
 </html>

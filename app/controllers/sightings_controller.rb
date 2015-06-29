@@ -26,6 +26,7 @@ class SightingsController < ApplicationController
     @sighting = Sighting.find(params[:id])
     @species = Species.find(params[:species_id])
     if @sighting.update(sighting_params)
+      flash[:notice] = "Sighting Updated"
       redirect_to species_path(@species)
     else
       render edit

@@ -1,10 +1,6 @@
-<% content_for(:title, "Species | Sightings") %>
-
-<h1><%= @species.name %></h1>
+<% content_for(:subtitle, "#{@species.name} Sightings") %>
 
 <% if @species.sightings.any? %>
-  <h4>Here are the sightings for this species:</h4>
-
   <ul>
     <% @species.sightings.each do |sighting| %>
     <li>
