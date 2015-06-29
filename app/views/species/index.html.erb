@@ -1,0 +1,9 @@
+<h1>Species</h1>
+
+<%= link_to "Add New Species", new_species_path %>
+
+<ul>
+  <% @species.each do |a_species| %>
+    <li><%= a_species.name %></li>
+  <% end %>
+</ul>

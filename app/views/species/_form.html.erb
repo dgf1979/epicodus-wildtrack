@@ -1,0 +1,8 @@
+<p>
+  Add new species:
+</p>
+<%= form_for [@species] do |f| %>
+  <%= f.label :name %>
+  <%= f.text_field :name %>
+  <p><%= f.submit %></p>
+<% end %>
