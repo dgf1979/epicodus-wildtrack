@@ -1,7 +1,30 @@
-<h1>Species</h1>
+<% content_for(:title, "Species | Sightings") %>
 
-<p>
-  <%= @species.name %>
-</p>
+<h1><%= @species.name %></h1>
 
-<p><%= link_to "Return to lists", species_index_path %></p>
+<% if @species.sightings.any? %>
+  <h4>Here are the sightings for this species:</h4>
+
+  <ul>
+    <% @species.sightings.each do |sighting| %>
+    <li>
+      <%= sighting.latitude %> |
+      <%= sighting.longitude %> |
+      <%= sighting.date %> |
+      <%= link_to "Edit", edit_species_sighting_path(@species, sighting) %> |
+      <%= link_to "Delete", species_sighting_path(@species, sighting),
+                                  :data => {:confirm => "Are you sure?",
+                                                    :method => "delete"} %>
+    </li>
+    <% end %>
+  </ul>
+  <% else %>
+    <p>There are no sightings yet!</p>
+    <% end %>
+
+    <p><%= link_to "Add a sighting", new_species_sighting_path(@species) %></p>
+    <p><%= link_to "Delete species", species_path(@species),
+                                  :data => {:confirm => "Are you sure?",
+                                                :method => "delete"} %></p>
+
+    <p><%= link_to "Return to species", species_path %></p>
