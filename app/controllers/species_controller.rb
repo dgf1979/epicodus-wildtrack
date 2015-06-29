@@ -5,7 +5,8 @@ class SpeciesController < ApplicationController
   end
 
   def show
-
+    @species = Species.find(params[:id])
+    render :show
   end
 
   def new
