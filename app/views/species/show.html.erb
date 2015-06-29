@@ -8,10 +8,10 @@
   <ul>
     <% @species.sightings.each do |sighting| %>
     <li>
-      <%= sighting.latitude %> |
-      <%= sighting.longitude %> |
-      <%= sighting.date %> |
-      <%= sighting.region %> |
+      On: <%= sighting.date %> |
+      LAT: <%= sighting.latitude %> |
+      LONG: <%= sighting.longitude %> |
+      REGION: <%= sighting.region %> |
       <%= link_to "Edit", edit_species_sighting_path(@species, sighting) %> |
       <%= link_to "Delete", species_sighting_path(@species, sighting),
                                   :data => {:confirm => "Are you sure?",
@@ -28,4 +28,4 @@
                                   :data => {:confirm => "Are you sure?",
                                                 :method => "delete"} %></p>
 
-    <p><%= link_to "Return to species", species_path %></p>
+    <p><%= link_to "Return to species", species_index_path %></p>
