@@ -6,6 +6,7 @@
   <% @species.each do |a_species| %>
     <li>
       <%= link_to a_species.name, species_path(a_species) %> |
+      <%= link_to "Edit", edit_species_path(a_species)  %>  |
       <%= link_to "Delete", species_path(a_species),
                                  :data => {:confirm => "Are you sure?",
                                                 :method => "delete"} %>
