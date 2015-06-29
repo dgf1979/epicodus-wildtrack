@@ -43,5 +43,5 @@ end
 
 private
   def sighting_params
-    params.require(:sighting).permit(:longitude, :latitude, :date)
+    params.require(:sighting).permit(:longitude, :latitude, :date, :region)
   end
